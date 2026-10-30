@@ -15,8 +15,6 @@ jobs:
           cd myntra-github-actions
           ls -la
 
-      - name: check docker image
-        run: docker images
 
 
 
