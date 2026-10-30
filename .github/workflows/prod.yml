@@ -16,10 +16,17 @@ jobs:
       - name: check docker image
         run: docker images 
 
-
-
-
-
+      - name: configure aws keys
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-south-1
+      - name: push docker image to ECR
+        run: |
+          aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 430155299210.dkr.ecr.ap-south-1.amazonaws.com
+          docker tag myntra:latest 430155299210.dkr.ecr.ap-south-1.amazonaws.com/myntra:latest
+          docker push 430155299210.dkr.ecr.ap-south-1.amazonaws.com/myntra:latest
 
 
     
