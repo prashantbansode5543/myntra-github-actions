@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: myntra
-        image: 497617901838.dkr.ecr.ap-south-1.amazonaws.com/myntra:latest
+        image: 430155299210.dkr.ecr.ap-south-1.amazonaws.com/myntra:latest
         ports:
           - containerPort: 3000   # Use port 3000
 
